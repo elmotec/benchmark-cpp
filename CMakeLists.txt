@@ -1,9 +1,11 @@
-project(benchmark-cpp)
+project(benchmark-cpp CXX)
 cmake_minimum_required(VERSION 3.22)
 
 include(FetchContent)
 
 set(CMAKE_BUILD_TYPE RelWithDebugInfo)
+set(CMAKE_COMPILER_ID GNU)
+#set(CMAKE_CXX_COMPILER /usr/bin/gcc)
 set(CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED On)
 

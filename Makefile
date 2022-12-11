@@ -1,18 +1,23 @@
 UID=$(shell id -u)
 GID=$(shell id -g)
 
-test: build
+profile.out: ./.build/bmk .PHONY
 	./.build/bmk
+	gprof ./.build/bmk gmon.out > $@
 
-configure: CMakeLists.txt
+.build/CMakeCache.txt: CMakeLists.txt
 	cmake -B.build .
 
-build:
+./.build/bmk: .build/CMakeCache.txt
 	(cd .build && make)
 
-docker: Dockerfile
-	docker build .
+docker: Dockerfile docker-compose.yaml
+	docker compose build
 
 shell:
 	docker compose run -u ${UID}:${GID} --rm -it dev
 
+clean:
+	-rm -rf .build
+
+.PHONY:

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  dev:
+    network_mode: "bridge"
+    build:
+      context: .
+      args:
+        USER: ${USER}
+    working_dir: /home/${USER}/workspace
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
+      - /etc/ssl:/etc/ssl:ro
+      - /home/${USER}/.vim:/home/${USER}/.vim:ro
+      - /home/${USER}/.config:/home/${USER}/.config:ro
+      - /home/${USER}/dotfiles:/home/${USER}/dotfiles:ro
+      - .:/home/${USER}/workspace
+      - /home/${USER}/.local:/home/${USER}/.local
+      - /home/${USER}/.cache:/home/${USER}/.cache
