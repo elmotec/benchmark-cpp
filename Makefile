@@ -1,7 +1,10 @@
 UID=$(shell id -u)
 GID=$(shell id -g)
 
-profile.out: ./.build/bmk .PHONY
+profile.clean.out: profile.out clean.sed
+	sed -f clean.sed $< > $@
+
+profile.out: ./.build/bmk
 	./.build/bmk
 	gprof ./.build/bmk gmon.out > $@
 
