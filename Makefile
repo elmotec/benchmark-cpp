@@ -21,6 +21,6 @@ shell:
 	docker compose run -u ${UID}:${GID} --rm -it dev
 
 clean:
-	-rm -rf .build
+	-rm -rf .build *.out
 
 .PHONY:
