@@ -10,7 +10,6 @@ cmake_minimum_required(VERSION 3.22.1)
 include(FetchContent)
 
 set(CMAKE_BUILD_TYPE RelWithDebugInfo)
-set(CMAKE_COMPILER_ID GNU)
 set(CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED On)
 

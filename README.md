@@ -6,10 +6,9 @@ To communicate your findings, copy and paste the content of `bmk.cpp` into the w
 
 ## Usage
 
-1. Clone this repository
-2. `make` (works with gcc right now)
-3. Edit `bmk.cpp` to implement and debug your tests (a profile.out is generated to make sure everything is hit), see [Google Benchmark documentation](https://github.com/google/benchmark/blob/main/docs/user_guide.md) for details.
-4. `./.build/bmk`
+1. Clone this repository.
+2. Edit `bmk.cpp` to implement and debug your tests (a profile.out is generated to make sure everything is hit), see [Google Benchmark documentation](https://github.com/google/benchmark/blob/main/docs/user_guide.md) for details.
+3. `make` and back to 2 if you need to debug.
 5. (optional) copy and paste bmk.cpp into [quick bench](https://quick-bench.com/).
 
 
