@@ -17,7 +17,7 @@ FetchContent_Declare(
 set(BENCHMARK_ENABLE_TESTING OFF CACHE INTERNAL "Google benchmark tests off")
 FetchContent_MakeAvailable(benchmark)
 
-add_executable(bmk test.cpp)
+add_executable(bmk bmk.cpp)
 target_compile_options(bmk PUBLIC -pg)
 target_link_options(bmk PUBLIC -pg)
 target_link_libraries(bmk benchmark::benchmark)
