@@ -1,11 +1,16 @@
-project(benchmark-cpp CXX)
-cmake_minimum_required(VERSION 3.22)
+cmake_policy(SET CMP0048 NEW)
+project(benchmark-cpp
+    VERSION 1.0.0
+    DESCRIPTION "Google Benchmark wrapper for C++"
+    HOMEPAGE_URL "https://github.com/elmotec/benchmark-cpp"
+    LANGUAGES CXX
+    )
+cmake_minimum_required(VERSION 3.22.1)
 
 include(FetchContent)
 
 set(CMAKE_BUILD_TYPE RelWithDebugInfo)
 set(CMAKE_COMPILER_ID GNU)
-#set(CMAKE_CXX_COMPILER /usr/bin/gcc)
 set(CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED On)
 
@@ -20,5 +25,5 @@ FetchContent_MakeAvailable(benchmark)
 add_executable(bmk bmk.cpp)
 target_compile_options(bmk PUBLIC -pg)
 target_link_options(bmk PUBLIC -pg)
-target_link_libraries(bmk benchmark::benchmark)
+target_link_libraries(bmk benchmark::benchmark_main)
 
